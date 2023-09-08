@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form:</title>
+    <link rel="stylesheet" href="./css/registration.css">
+    <!--<link rel="stylesheet" href="./css/main.css">-->
+    <style>
+        div {
+          margin-bottom: 10px;
+        }
+        label {
+          display: inline-block;
+          width: 150px;
+        }
+      </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Registration Form</h1>
+        <div class="input type">
+        <form id="registrationForm"><br><br> 
+        <label for="firstName">First Name:</label></td>
+        <input type="text" id="firstName" name="firstName" pattern="[A-Za-z]+" title="Only alphabetic characters are allowed" required><br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" pattern="[A-Za-z]+" title="Only alphabetic characters are allowed" required><br><br>
+        <label for="gender">Gender:</label>
+
+        <input type="radio" name="gender" value="male"required> Male
+
+       <input type="radio" name="gender" value="female"required> Female <br><br>
+
+       <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]{1,8}$" title="Password must contain at least one capital letter, one number, one special character, and be less than 8 characters" required><br><br>
+
+      <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+
+        <label for="language">language</label>
+
+        <select name="language" id="language">
+
+          <option value="">Select language</option>
+
+          <option value="English">English</option>
+
+          <option value="Spanish">Spanish</option>
+
+          <option value="Hindi">Hindi</option>
+
+          <option value="Arabic">Arabic</option>
+
+          <option value="Russian">Russian</option>
+
+        </select>
+        <br><br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      
+        </div>
+        </div>
+
+        </form>
+        <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the input values
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const email = document.getElementById("email").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Defines a regex pattern for South African phone numbers
+            const saPhoneNumberPattern = /^(?:\+27|0)[1-9]\d{8}$/;
+
+            // Check if the input matches the pattern
+            if (saPhoneNumberPattern.test(phoneNumber)) {
+                if (password === confirmPassword) {
+                    alert("Registration Successful!\n\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email + "\nPhone Number: " + phoneNumber);
+                    // Alert when details are successfully entered.
+                } else {
+                    alert("Passwords do not match. Please confirm your password.");
+                }
+            } else {
+                alert("Invalid phone number. Please use a valid format.");
+                // Alert message if format inserted is invalid. 
+            }
+        });
+    </script>
+
+    
+</body>
+</html>
