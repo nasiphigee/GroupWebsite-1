@@ -23,7 +23,7 @@
   margin-top:100px; 
   border-top:3px double 
   #f1f1f1; 
- border-bottom:3px double #f1f1f1;
+ border-bottom:px double #f1f1f1;
   padding-top:20px;
  }
  
@@ -69,3 +69,21 @@
  -webkit-transition: 1s;
   -moz-transition: 1s; 
   transition: 1s; }
+
+  .button 
+ {
+    width:600px; height:auto; overflow:hidden; padding-bottom:20px; margin-left:auto; margin-right:auto; 
+    border-bottom:3px double #f1f1f1; padding-top:20px;
+ }
+ section {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 20vh; /* Optional: Make the section take the full viewport height */
+    
+  }
+
+  #homeicon {
+    color:white /* Change the icon color to orange */
+
+  }

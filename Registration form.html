@@ -3,8 +3,8 @@
 <head>
 <title>5 Stars EduTech Registration Form</title>
 <link rel="stylesheet" href="css\new.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
   <body>
   <!-- Main div code -->
   <div id="main">
@@ -15,19 +15,19 @@
   <div class="login">
   <table cellspacing="2" align="center" cellpadding="8" border="0">
   <tr>
-  <td align="right">Enter Name :</td>
-  <td><input type="text" placeholder="Enter user here" id="t1" class="tb" /></td>
+  <td align="right">Name :</td>
+  <td><input type="text" placeholder="Enter name here" id="t1" class="tb" /></td>
   </tr>
   <tr>
-  <td align="right">Enter Email address :</td>
-  <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
+  <td align="right">Email address :</td>
+  <td><input type="text" placeholder="Enter Email here" id="t2" class="tb" /></td>
   </tr>
   <tr>
-  <td align="right">Enter Username :</td>
+  <td align="right">Username :</td>
   <td><input type="text" placeholder="Enter Username here" id="t3" class="tb" /></td>
   </tr>
   <tr>
-  <td align="right">Enter Password :</td>
+  <td align="right">Password :</td>
   <td><input type="password" placeholder="Enter Password here" id="t4" class="tb" /></td>
   </tr>
   <tr>
@@ -44,8 +44,12 @@
   </div>
   <!-- create account box ending here.. -->
   </div>
+  <div class="button">
+	<input type="file" name="file" id="file">
+    <button onclick="doupload()" name="submit">Upload File</button>
+  </div>
   <!-- Main div ending here... -->
-
+  <section><footer><a href="index.html"><i class='bx bx-home-heart bx-lg bx-tada-hover' id="homeicon"></i></a></footer></section>
 <script>
   function registration()
 	{
@@ -124,6 +128,17 @@
 		document.getElementById("t4").value="";
 		document.getElementById("t5").value="";
 	}
+	 //upload file button.
+   
+	 function doupload() {
+		let data = document.getElementById("file").files[0];
+		let entry = document.getElementById("file").files[0];
+		console.log('doupload',entry,data)
+		fetch('uploads/' + encodeURIComponent(entry.name), {method:'PUT',body:data});
+		alert('your file has been uploaded');
+		location.reload();
+	};
+
 </script>
   </body>
   </html>
